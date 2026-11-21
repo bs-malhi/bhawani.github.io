@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="C23WVe0Cwgckzqds5i66wjY3SlQbu0xTRt38CV-Ke8w" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ meta_title or title }}</title>
+<meta name="description" content="{{ meta_description or description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#17293D">
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:title" content="{{ meta_title or title }}">
+<meta property="og:description" content="{{ meta_description or description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:image" content="{{ site.url }}{{ image or '/assets/og-share-image.png' }}">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ meta_title or title }}">
+<meta name="twitter:description" content="{{ meta_description or description }}">
+<meta name="twitter:image" content="{{ site.url }}{{ image or '/assets/og-share-image.png' }}">
+
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RF1163M0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6RF1163M0C');
+</script>
+
+<!-- Netlify Identity (needed for the /admin blog editor login) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/assets/logo.png" alt="Bhawani Growth logo"><span>Bhawani Growth</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="{{ site.whatsapp }}">Chat on WhatsApp</a>
+  </div>
+</header>
+
+<main id="top">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="/"><img src="/assets/logo.png" alt="Bhawani Growth"><small>Bhawani Growth — Karachi, Pakistan</small></a>
+    <div class="footer-contact">
+      <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
