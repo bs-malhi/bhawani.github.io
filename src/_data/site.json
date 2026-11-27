@@ -1,0 +1,40 @@
+{
+  "name": "GS Visibility",
+  "alternateName": "GSV",
+  "url": "https://gsvisibility.com",
+  "locale": "en-GB",
+  "ogLocale": "en_GB",
+  "description": "GS Visibility is an SEO team helping small businesses in Europe and Australia rank higher on Google with technical audits, on-page optimisation, local SEO and keyword research.",
+  "founder": "Bhawani Shankar",
+  "email": "info@gsvisibility.com",
+  "phone": "+92 342 3528805",
+  "phoneHref": "+923423528805",
+  "whatsapp": "https://wa.me/923423528805?text=Hi%20GS%20Visibility%2C%20I%27d%20like%20a%20free%20SEO%20mini-audit%20for%20my%20website.",
+  "linkedin": "https://www.linkedin.com/in/bhawani-shankar108",
+  "location": "Karachi, Pakistan",
+  "gaId": "G-6RF1163M0C",
+  "gscVerification": "C23WVe0Cwgckzqds5i66wjY3SlQbu0xTRt38CV-Ke8w",
+  "year": 2026,
+  "services": [
+    {
+      "name": "Technical SEO audit",
+      "url": "/services/technical-seo-audit/",
+      "blurb": "Find the crawl, indexing, speed and structured-data problems holding your site back, and get them fixed."
+    },
+    {
+      "name": "On-page SEO & content optimisation",
+      "url": "/services/on-page-seo/",
+      "blurb": "Titles, headings and copy rebuilt around the words your customers actually search with."
+    },
+    {
+      "name": "Local SEO & Google Business Profile",
+      "url": "/services/local-seo/",
+      "blurb": "Show up in local results and maps in your country, where nearby customers start looking."
+    },
+    {
+      "name": "Keyword & competitor research",
+      "url": "/services/keyword-research/",
+      "blurb": "See what your competitors rank for that you don't, and turn the gap into a prioritised plan."
+    }
+  ]
+}

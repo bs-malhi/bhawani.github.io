@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: "SEO Blog for Small Businesses | GS Visibility"
+description: "Practical SEO tips and guides for small business owners in Europe and Australia, from the team at GS Visibility."
+---
+{% from "breadcrumbs.njk" import crumbs %}
+{{ crumbs([{name: "Home", url: "/"}, {name: "Blog", url: "/blog/"}], site.url) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ site.url }}/blog/#webpage",
+  "url": "{{ site.url }}/blog/",
+  "name": {{ title | dump | safe }},
+  "isPartOf": {"@id": "{{ site.url }}/#website"},
+  "about": {"@id": "{{ site.url }}/#organization"},
+  "inLanguage": "{{ site.locale }}"
+}
+</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>SEO tips for small businesses</h1>
+    <p class="lede">Practical, no-fluff posts: the kind of advice we would give a client, not generic listicles.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="blog-list">
+      {% for post in collections.posts %}
+      <article class="blog-card{% if not post.data.featured_image %} no-image{% endif %}">
+        {% if post.data.featured_image %}<img src="{{ post.data.featured_image }}" alt="{{ post.data.featured_image_alt or post.data.title }}" width="360" height="220" loading="lazy">{% endif %}
+        <div>
+          <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p class="blog-meta">{{ post.date | readableDate }} &middot; {{ post.data.author or site.founder }}</p>
+          <p>{{ post.data.meta_description or post.data.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

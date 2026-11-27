@@ -1,0 +1,17 @@
+{#- Usage: {% from "breadcrumbs.njk" import crumbs %}{{ crumbs([{name:"Home",url:"/"},{name:"Services",url:"/services/"},{name:"Page",url:"/services/page/"}], site.url) }} -#}
+{% macro crumbs(items, base) %}
+<nav class="breadcrumbs wrap" aria-label="Breadcrumb">
+  <ol>
+  {%- for it in items %}
+    <li>{% if not loop.last %}<a href="{{ it.url }}">{{ it.name }}</a>{% else %}<span aria-current="page">{{ it.name }}</span>{% endif %}</li>
+  {%- endfor %}
+  </ol>
+</nav>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{%- for it in items %}
+{"@type":"ListItem","position":{{ loop.index }},"name":{{ it.name | dump | safe }},"item":"{{ base }}{{ it.url }}"}{% if not loop.last %},{% endif %}
+{%- endfor %}
+]}
+</script>
+{% endmacro %}

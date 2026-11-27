@@ -1,0 +1,22 @@
+---
+permalink: robots.txt
+eleventyExcludeFromCollections: true
+---
+# Search engines and AI search/answer crawlers share the same rules, so each one also
+# respects the /admin/ exclusion (a crawler follows only its most specific group).
+User-agent: *
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: FacebookBot
+Allow: /
+Disallow: /admin/
+
+# Known for ignoring crawl-delay and hitting small sites hard
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

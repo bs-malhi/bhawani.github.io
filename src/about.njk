@@ -1,0 +1,78 @@
+---
+layout: base.njk
+title: "About GS Visibility | SEO Specialists for Small Businesses"
+description: "GS Visibility is an SEO team led by Bhawani Shankar, working remotely with small businesses in Europe and Australia on technical, on-page and local SEO."
+---
+{% from "breadcrumbs.njk" import crumbs %}
+{{ crumbs([{name: "Home", url: "/"}, {name: "About", url: "/about/"}], site.url) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "{{ site.url }}/about/#webpage",
+      "url": "{{ site.url }}/about/",
+      "name": {{ title | dump | safe }},
+      "isPartOf": {"@id": "{{ site.url }}/#website"},
+      "about": {"@id": "{{ site.url }}/#organization"},
+      "inLanguage": "{{ site.locale }}"
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/about/#founder",
+      "name": {{ site.founder | dump | safe }},
+      "jobTitle": "SEO Specialist",
+      "worksFor": {"@id": "{{ site.url }}/#organization"},
+      "sameAs": "{{ site.linkedin }}",
+      "knowsAbout": ["Technical SEO", "On-page SEO", "Local SEO", "Keyword research", "International SEO", "Generative engine optimisation"]
+    }
+  ]
+}
+</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>About GS Visibility</h1>
+    <p class="lede">An SEO team that works with small businesses in Europe and Australia, and explains what it is doing in plain English.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about-grid prose">
+    <div>
+      <h2 style="margin-top:0;">Who we are</h2>
+    </div>
+    <div>
+      <p>GS Visibility is led by {{ site.founder }}, a freelance SEO specialist who has worked hands-on auditing sites and growing organic traffic for real clients. Today that work is done by a team, with the same focus on practical fixes you can see.</p>
+      <p>{{ site.founder }} holds the International SEO certification from Semrush Academy and a NAVTTC-affiliated certification in Digital Marketing and SEO, and has studied the fundamentals of GEO and AEO: making sure your content also appears correctly in AI-generated answers, not only in traditional search results.</p>
+      <p>We work remotely from {{ site.location }} and schedule calls around your time zone. If you have been burned by a generic "SEO package" before, this is built for you: realistic timelines, plain-English updates and work you can actually see.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <h2>How we work</h2>
+    <div class="value-grid">
+      <div class="value"><h3>Fix, do not just report</h3><p>Every audit ends with problems fixed where we can, and a clear list of anything that needs your decision.</p></div>
+      <div class="value"><h3>Built around your market</h3><p>Research is done for your country and your language variant, not a generic global keyword list.</p></div>
+      <div class="value"><h3>Plain English</h3><p>Monthly updates you can read without a glossary, with what changed, why it matters and what comes next.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band">
+  <div class="wrap">
+    <h2>Talk to us about your website</h2>
+    <p>Tell us what you sell and where your customers are, and we will tell you honestly where the biggest SEO opportunities are.</p>
+    <div class="contact-ctas">
+      <a class="btn btn-light" href="/contact/">Get a free mini-audit</a>
+      <a class="text-link" href="{{ site.whatsapp }}">Chat on WhatsApp</a>
+    </div>
+    <div class="contact-details">
+      <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+  </div>
+</section>

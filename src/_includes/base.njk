@@ -1,0 +1,199 @@
+{%- set pageUrl = site.url + page.url -%}
+{%- set pageTitle = meta_title or title -%}
+{%- set pageDesc = meta_description or description -%}
+{%- set shareImagePath = featured_image or image or '/assets/img/og-image.png' -%}
+{%- set shareAlt = featured_image_alt or imageAlt or title if featured_image else 'GS Visibility: SEO services for small businesses in Europe and Australia' -%}
+<!DOCTYPE html>
+<html lang="{{ site.locale }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ pageUrl }}">
+{% if noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">{% endif %}
+
+{#- International targeting: English-language content for Europe and Australia.
+    One URL per page, so each page points to itself. If regional pages are added later,
+    list them in the page's front matter as `hreflangs` and they will be output here. -#}
+{% if not noindex %}
+{% if hreflangs %}{% for h in hreflangs %}<link rel="alternate" hreflang="{{ h.lang }}" href="{{ site.url }}{{ h.url }}">
+{% endfor %}{% else %}<link rel="alternate" hreflang="en" href="{{ pageUrl }}">
+<link rel="alternate" hreflang="x-default" href="{{ pageUrl }}">
+{% endif %}{% endif %}
+<meta http-equiv="content-language" content="en-gb">
+<meta name="google-site-verification" content="{{ site.gscVerification }}">
+<meta name="theme-color" content="#012244">
+<meta name="author" content="{{ author or site.founder }}">
+
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.ogLocale }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ pageUrl }}">
+<meta property="og:image" content="{{ site.url }}{{ shareImagePath }}">
+<meta property="og:image:alt" content="{{ shareAlt }}">
+{% if not featured_image and not image %}<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% endif %}
+{% if ogType == 'article' %}<meta property="article:published_time" content="{{ date | isoDate }}">
+<meta property="article:modified_time" content="{{ (updated or date) | isoDate }}">
+<meta property="article:author" content="{{ author or site.founder }}">
+{% for tag in tags %}<meta property="article:tag" content="{{ tag }}">
+{% endfor %}{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDesc }}">
+<meta name="twitter:image" content="{{ site.url }}{{ shareImagePath }}">
+<meta name="twitter:image:alt" content="{{ shareAlt }}">
+
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="alternate" type="application/atom+xml" title="{{ site.name }} blog" href="{{ site.url }}/feed.xml">
+
+<link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+
+{#- Netlify Identity is only loaded when someone follows an invite or password-reset link.
+    No third-party script runs for normal visitors. -#}
+<script>
+(function () {
+  if (!/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)) return;
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onload = function () {
+    if (window.netlifyIdentity) window.netlifyIdentity.on("login", function () { location.href = "/admin/"; });
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="GS Visibility home"><img src="/assets/img/gs-visibility-logo.png" alt="GS Visibility" width="900" height="164"></a>
+    <ul class="nav-links">
+      <li><a href="/services/"{% if page.url.startsWith('/services/') %} aria-current="page"{% endif %}>Services</a></li>
+      <li><a href="/blog/"{% if page.url.startsWith('/blog/') %} aria-current="page"{% endif %}>Blog</a></li>
+      <li><a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a></li>
+      <li><a href="/contact/"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="/contact/">Free mini-audit</a>
+      <details class="mobile-nav">
+        <summary aria-label="Open menu"><span class="burger"></span></summary>
+        <nav aria-label="Mobile">
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/blog/">Blog</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="{{ site.whatsapp }}">WhatsApp us</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="/assets/img/gs-visibility-logo.png" alt="GS Visibility" width="900" height="164">
+      <p>SEO for small businesses in Europe and Australia: technical audits, on-page work, local SEO and keyword research.</p>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="/services/technical-seo-audit/">Technical SEO audit</a></li>
+        <li><a href="/services/on-page-seo/">On-page SEO</a></li>
+        <li><a href="/services/local-seo/">Local SEO</a></li>
+        <li><a href="/services/keyword-research/">Keyword research</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></li>
+        <li><a href="{{ site.whatsapp }}">WhatsApp</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="{{ site.linkedin }}" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; {{ site.year }} {{ site.name }}. Based in {{ site.location }}, working remotely with clients in Europe and Australia.</span>
+    <button type="button" class="link-button" id="cookie-settings">Cookie settings</button>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="region" aria-label="Cookie consent" hidden>
+  <p>We use Google Analytics to understand how visitors use this site. It stays switched off unless you accept. <a href="/privacy-policy/#cookies">Privacy policy</a></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-primary" id="consent-accept">Accept</button>
+    <button type="button" class="btn btn-ghost" id="consent-decline">Decline</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var GA_ID = "{{ site.gaId }}", KEY = "gsv-consent";
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  var banner = document.getElementById("consent");
+  function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function loadGA() {
+    if (window.__gsvGA) return;
+    window.__gsvGA = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(s);
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+  }
+  function clearGA() {
+    window["ga-disable-" + GA_ID] = true;
+    document.cookie.split(";").forEach(function (c) {
+      var n = c.split("=")[0].trim();
+      if (n === "_ga" || n.indexOf("_ga_") === 0) {
+        var parts = location.hostname.split(".");
+        [location.hostname, "." + location.hostname, "." + parts.slice(-2).join(".")].forEach(function (d) {
+          document.cookie = n + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + d;
+        });
+        document.cookie = n + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      }
+    });
+  }
+  var choice = read();
+  if (choice === "granted") loadGA(); else if (!choice) banner.hidden = false;
+  document.getElementById("consent-accept").addEventListener("click", function () {
+    write("granted"); window["ga-disable-" + GA_ID] = false; loadGA(); banner.hidden = true;
+  });
+  document.getElementById("consent-decline").addEventListener("click", function () {
+    write("denied"); clearGA(); banner.hidden = true;
+  });
+  document.getElementById("cookie-settings").addEventListener("click", function () { banner.hidden = false; });
+})();
+</script>
+</body>
+</html>

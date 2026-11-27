@@ -1,0 +1,209 @@
+---
+layout: base.njk
+title: "GS Visibility | Small Business SEO, Europe & Australia"
+description: "An SEO team helping small businesses in Europe and Australia rank higher on Google: technical audits, on-page SEO, local SEO and keyword research."
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "Organization"],
+      "@id": "{{ site.url }}/#organization",
+      "name": {{ site.name | dump | safe }},
+      "alternateName": {{ site.alternateName | dump | safe }},
+      "url": "{{ site.url }}/",
+      "logo": {"@type": "ImageObject", "@id": "{{ site.url }}/#logo", "url": "{{ site.url }}/assets/img/gs-visibility-logo-512.png", "width": 512, "height": 512, "caption": {{ site.name | dump | safe }}},
+      "image": "{{ site.url }}/assets/img/og-image.png",
+      "description": {{ site.description | dump | safe }},
+      "email": "{{ site.email }}",
+      "telephone": "{{ site.phoneHref }}",
+      "address": {"@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK"},
+      "areaServed": [{"@type": "Continent", "name": "Europe"}, {"@type": "Country", "name": "Australia"}],
+      "knowsLanguage": "en",
+      "founder": {"@type": "Person", "name": {{ site.founder | dump | safe }}, "sameAs": "{{ site.linkedin }}"},
+      "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "telephone": "{{ site.phoneHref }}", "email": "{{ site.email }}", "availableLanguage": "English", "areaServed": ["Europe", "Australia"]}],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO services",
+        "itemListElement": [
+          {% for s in site.services %}{"@type": "Offer", "itemOffered": {"@type": "Service", "name": {{ s.name | dump | safe }}, "url": "{{ site.url }}{{ s.url }}"}}{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": {{ site.name | dump | safe }},
+      "alternateName": {{ site.alternateName | dump | safe }},
+      "inLanguage": "{{ site.locale }}",
+      "publisher": {"@id": "{{ site.url }}/#organization"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}/#webpage",
+      "url": "{{ site.url }}/",
+      "name": {{ title | dump | safe }},
+      "isPartOf": {"@id": "{{ site.url }}/#website"},
+      "about": {"@id": "{{ site.url }}/#organization"},
+      "inLanguage": "{{ site.locale }}"
+    }
+  ]
+}
+</script>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Your customers are already searching for you.</h1>
+      <p class="lede">They just can't find you yet. GS Visibility is an SEO team helping small businesses in Europe and Australia reach page one of Google, through technical fixes, better content and local optimisation.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="/contact/">Get a free mini-audit</a>
+        <a class="text-link" href="{{ site.whatsapp }}">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="brand-card">
+      <img src="/assets/img/gs-visibility-stacked.png" alt="GS Visibility logo with the tagline Grow, Strategize, Stand Out" width="900" height="522" fetchpriority="high">
+      <p>SEO for small businesses that want to be found.</p>
+      <div class="markets"><span class="pill">Europe</span><span class="pill">Australia</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-num">100+</div><div class="trust-cap">Keywords researched and mapped</div></div>
+    <div class="trust-item"><div class="trust-num">1,000+</div><div class="trust-cap">Relevant backlinks built</div></div>
+    <div class="trust-item"><div class="trust-num">+68%</div><div class="trust-cap">Growth in search impressions</div></div>
+  </div>
+  <p class="trust-note">Figures from one recent SEO project. Client name withheld.</p>
+</div>
+
+<section class="problem">
+  <div class="wrap">
+    <h2>A great business that is invisible on Google might as well not exist to a new customer.</h2>
+    <p>Paid ads bring clicks for as long as you keep paying for them. SEO fixes the problem underneath, so when someone searches for exactly what you sell, your site is simply there, month after month, without a running bill attached.</p>
+  </div>
+</section>
+
+<section id="markets" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Built for search in Europe and Australia</h2>
+      <p>We focus on two regions so the work fits how your customers actually search.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value">
+        <h3>Your market's language</h3>
+        <p>Keyword research is done per country, including spelling and wording differences such as "optimisation" and "optimization", so pages target the terms people near you really type.</p>
+      </div>
+      <div class="value">
+        <h3>Privacy-aware measurement</h3>
+        <p>GA4 and Search Console are set up with GDPR and consent requirements in mind, so your reporting does not cause you problems later.</p>
+      </div>
+      <div class="value">
+        <h3>Remote and flexible</h3>
+        <p>We work from Karachi and schedule calls around your time zone, whether you are in London, Berlin or Melbourne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where we make the difference</h2>
+      <p>Four focused services, not a bundled package. <a class="text-link" href="/services/">See every service in detail</a>.</p>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Technical SEO</span>
+      <span class="pill">On-page optimisation</span>
+      <span class="pill">Local SEO</span>
+      <span class="pill">Keyword research</span>
+      <span class="pill">Content strategy</span>
+      <span class="pill">Link building</span>
+      <span class="pill">Core Web Vitals</span>
+      <span class="pill">Schema markup</span>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <h3><a href="/services/technical-seo-audit/">Technical SEO audit</a></h3>
+        <p>A full check of how search engines see your site: crawl errors, indexing problems, slow pages and missing structured data, followed by the fixes.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/on-page-seo/">On-page SEO and content optimisation</a></h3>
+        <p>Pages rewritten and restructured around the terms your customers actually use, without stuffing keywords or hurting readability.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/local-seo/">Local SEO and Google Business Profile</a></h3>
+        <p>Most small-business searches carry a place name. We make sure you appear in local results and maps for the areas you serve.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/keyword-research/">Keyword and competitor research</a></h3>
+        <p>A clear view of what your competitors rank for that you do not, turned into a realistic, prioritised plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How a project runs</h2>
+      <p>The same four stages every time, so you always know what is happening and why.</p>
+    </div>
+    <div class="process-row">
+      <div class="process-item"><div class="process-dot">1</div><h3>Audit</h3><p>A technical and content audit using Search Console, GA4 and a full site crawl.</p></div>
+      <div class="process-item"><div class="process-dot">2</div><h3>Strategy</h3><p>Keyword research mapped to what your customers search, on a realistic timeline.</p></div>
+      <div class="process-item"><div class="process-dot">3</div><h3>Execute</h3><p>Fixes, content and link building carried out directly, step by step.</p></div>
+      <div class="process-item"><div class="process-dot">4</div><h3>Report</h3><p>Plain-English monthly updates on rankings and traffic, not a jargon-heavy PDF.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>A recent result</h2>
+      <p>From a recent SEO project over three months. Client name withheld; we are happy to go through the detail on a call.</p>
+    </div>
+    <div class="results-grid">
+      <div class="compare">
+        <div class="compare-row"><span>Metric</span><span>Before</span><span>After</span></div>
+        <div class="compare-row"><span>Google Search impressions</span><span>97.3K</span><span class="after-val">164K</span></div>
+        <div class="compare-row"><span>Average ranking position</span><span>25.9</span><span class="after-val">17.7</span></div>
+      </div>
+      <div class="callout">
+        <span class="num">52 &rarr; 14,059</span>
+        <p>Impressions on a single page after a content and technical rewrite. The clearest proof that fixing the fundamentals works.</p>
+      </div>
+    </div>
+    <p class="proof-note">How it was done: keyword research mapped to existing and new pages, link building from relevant, low-spam sources, and technical fixes across indexing, sitemaps and Core Web Vitals.</p>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0;">
+  <div class="wrap about-grid">
+    <div class="section-head"><h2>Who is behind GS Visibility</h2></div>
+    <div>
+      <p>GS Visibility is an SEO team led by {{ site.founder }}, a certified SEO specialist working with small businesses in Europe and Australia. <a class="text-link" href="/about/">Read more about us</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band">
+  <div class="wrap">
+    <h2>Not sure where to start? Get a free mini-audit.</h2>
+    <p>Send us your website and we will reply with three specific things you can fix this week. No cost, no pressure, no contract.</p>
+    <div class="contact-ctas">
+      <a class="btn btn-light" href="/contact/">Get a free mini-audit</a>
+      <a class="text-link" href="{{ site.whatsapp }}">Chat on WhatsApp</a>
+    </div>
+    <div class="contact-details">
+      <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+  </div>
+</section>
